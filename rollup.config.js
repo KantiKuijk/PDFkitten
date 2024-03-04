@@ -5,6 +5,8 @@ import copy from 'rollup-plugin-cpy';
 const external = [
   'stream',
   'fs',
+  'path',
+  'url',
   'zlib',
   'fontkit',
   'events',
@@ -16,73 +18,13 @@ const external = [
 ];
 
 export default [
-  // CommonJS build for Node
-  {
-    input: 'lib/document.js',
-    external,
-    output: {
-      name: 'pdfkitten',
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true,
-      interop: false
-    },
-    plugins: [
-      babel({
-        babelrc: false,
-        presets: [
-          [
-            '@babel/preset-env',
-            {
-              modules: false,
-              targets: {
-                node: '6.10'
-              }
-            }
-          ]
-        ]
-      }),
-      copy({
-        files: ['lib/font/data/*.afm', 'lib/color_profiles/*.icc'],
-        dest: 'js/data'
-      })
-    ]
-  },
-  // ES for legacy (IE11) browsers
-  {
-    input: 'lib/document.js',
-    external,
-    output: {
-      name: 'pdfkitten.es5',
-      file: pkg.module,
-      format: 'es',
-      sourcemap: true
-    },
-    plugins: [
-      babel({
-        babelrc: false,
-        presets: [
-          [
-            '@babel/preset-env',
-            {
-              modules: false,
-              targets: {
-                browsers: ['ie 11']
-              },
-              exclude: ['@babel/plugin-transform-typeof-symbol']
-            }
-          ]
-        ]
-      })
-    ]
-  },
   // ES for green browsers
   {
     input: 'lib/document.js',
     external,
     output: {
-      name: 'pdfkitten.esnext',
-      file: pkg.esnext,
+      name: 'pdfkit',
+      file: pkg.main,
       format: 'es',
       sourcemap: true
     },
@@ -106,33 +48,14 @@ export default [
             }
           ]
         ]
-      })
-    ]
-  },
-  {
-    input: 'lib/virtual-fs.js',
-    external,
-    output: {
-      name: 'virtual-fs',
-      file: 'js/virtual-fs.js',
-      format: 'cjs',
-      sourcemap: false
-    },
-    plugins: [
-      babel({
-        babelrc: false,
-        presets: [
-          [
-            '@babel/preset-env',
-            {
-              loose: true,
-              modules: false,
-              targets: {
-                browsers: ['ie 11']
-              }
-            }
-          ]
-        ]
+      }),
+      copy({
+        files: ['lib/font/data/*.afm', 'lib/color_profiles/*.icc'],
+        dest: 'js/data'
+      }),
+      copy({
+        files: ['lib/index.d.ts'],
+        dest: 'js'
       })
     ]
   }
