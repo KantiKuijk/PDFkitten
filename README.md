@@ -1,5 +1,7 @@
-# PDFKit
+# PDFkitten
 
+This is a fork from PDFKit that adds some options when typing like spaceBefore, spaceAfter, spaceAround, keepTogether, keepWithNext and forceSpacing.
+What follows is the readme for PDFKit itself:
 A JavaScript PDF generation library for Node and the browser.
 
 ## Description
@@ -20,7 +22,7 @@ You can also try out an interactive in-browser demo of PDFKit [here](http://pdfk
 
 Installation uses the [npm](http://npmjs.org/) package manager. Just type the following command after installing npm.
 
-    npm install pdfkit
+    npm install pdfkitten
 
 ## Features
 
@@ -63,7 +65,7 @@ Installation uses the [npm](http://npmjs.org/) package manager. Just type the fo
 ## Example
 
 ```javascript
-const PDFDocument = require('pdfkit');
+const PDFDocument = require('pdfkitten');
 const fs = require('fs');
 
 // Create a document
@@ -143,7 +145,7 @@ of prebuilt version usage.
 
 ```javascript
 // require dependencies
-const PDFDocument = require('pdfkit');
+const PDFDocument = require('pdfkitten');
 const blobStream = require('blob-stream');
 
 // create a document the same way as above

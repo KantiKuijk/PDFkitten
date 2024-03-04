@@ -21,7 +21,7 @@ export default [
     input: 'lib/document.js',
     external,
     output: {
-      name: 'pdfkit',
+      name: 'pdfkitten',
       file: pkg.main,
       format: 'cjs',
       sourcemap: true,
@@ -53,7 +53,7 @@ export default [
     input: 'lib/document.js',
     external,
     output: {
-      name: 'pdfkit.es5',
+      name: 'pdfkitten.es5',
       file: pkg.module,
       format: 'es',
       sourcemap: true
@@ -81,7 +81,7 @@ export default [
     input: 'lib/document.js',
     external,
     output: {
-      name: 'pdfkit.esnext',
+      name: 'pdfkitten.esnext',
       file: pkg.esnext,
       format: 'es',
       sourcemap: true

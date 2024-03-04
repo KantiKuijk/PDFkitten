@@ -1,6 +1,6 @@
 {
-  "name": "pdfkit",
-  "description": "A PDF generation library for Node.js",
+  "name": "pdfkitten",
+  "description": "A fork of: A PDF generation library for Node.js",
   "keywords": [
     "pdf",
     "pdf writer",
@@ -9,19 +9,25 @@
     "document",
     "vector"
   ],
-  "version": "0.14.0",
+  "version": "0.14.1",
   "homepage": "http://pdfkit.org/",
   "author": {
     "name": "Devon Govett",
     "email": "devongovett@gmail.com",
     "url": "http://badassjs.com/"
   },
+  "contributors": [
+    {
+      "name": "Kanti Kuijk",
+      "email": "kanti@kuijk.be"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/foliojs/pdfkit.git"
+    "url": "https://github.com/KantiKuijk/PDFkitten.git"
   },
-  "bugs": "https://github.com/foliojs/pdfkit/issues",
+  "bugs": "https://github.com/KantiKuijk/PDFkitten/issues",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-external-helpers": "^7.10.4",
@@ -68,9 +74,12 @@
     "test:visual": "jest visual/ -i",
     "test:unit": "jest unit/"
   },
-  "main": "js/pdfkit.js",
-  "module": "js/pdfkit.es5.js",
-  "esnext": "js/pdfkit.esnext.js",
+  "exports": {
+    ".": "./js/pdfkitten.esnext.js"
+  },
+  "main": "js/pdfkitten.js",
+  "module": "js/pdfkitten.es5.js",
+  "esnext": "js/pdfkitten.esnext.js",
   "browserify": {
     "transform": [
       "brfs"
