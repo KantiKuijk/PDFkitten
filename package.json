@@ -32,6 +32,7 @@
     "@babel/core": "^7.11.6",
     "@babel/plugin-external-helpers": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
+    "@types/pdfkit": "^0.13.4",
     "babel-jest": "^26.3.0",
     "blob-stream": "^0.1.2",
     "brace": "^0.11.1",
@@ -62,7 +63,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "rollup -c && browserify --standalone PDFDocument --ignore crypto --ignore iconv-lite js/pdfkit.js > js/pdfkit.standalone.js",
+    "build": "rollup -c && browserify --standalone PDFDocument --ignore crypto --ignore iconv-lite js/pdfkitten.js > js/pdfkitten.standalone.js && cp lib/index.d.ts js/pdfkitten.d.ts && cp lib/index.d.ts js/pdfkitten.esnext.d.ts && cp lib/index.d.ts js/pdfkitten.es5.d.ts && cp lib/index.d.ts js/pdfkitten.standalone.d.ts && cp lib/index.d.ts js/virtual-fs.d.ts",
     "browserify-example": "browserify examples/browserify/browser.js > examples/browserify/bundle.js",
     "pdf-guide": "node docs/generate.js",
     "website": "node docs/generate_website.js",
